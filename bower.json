@@ -1,0 +1,11 @@
+{
+  "name": "todo",
+  "description": "\"My first angular js project\"",
+  "main": "app.js",
+  "authors": [
+    "Md. Nuruzzaman Bappi"
+  ],
+  "license": "ISC",
+  "homepage": "index.html",
+  "moduleType": []
+}

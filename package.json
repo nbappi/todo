@@ -1,0 +1,26 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "My first angular js project",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+     "prestart": "npm install",
+     "start": "http-server -a localhost -p 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nbappi/todo.git"
+  },
+  "author": "Md. Nuruzzaman Bappi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nbappi/todo/issues"
+  },
+  "homepage": "https://github.com/nbappi/todo#readme",
+  "devDependencies": {
+    "bower": "^1.7.9"
+  }
+}
