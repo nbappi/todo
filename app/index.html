@@ -1,1 +1,25 @@
-Hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+
+    <title>Todo</title>
+</head>
+
+<body ng-app="todoApp">
+    <ng-view></ng-view>
+
+    <!--        bower component      -->
+    <script src="assets/bower_components/angular/angular.js"></script>
+    <script src="assets/bower_components/angular-route/angular-route.js"></script>
+
+    <!--      angular app    -->
+    <script src="app.js"></script>
+
+    <!--      controller     -->
+    <script src="modules/Todo/TodoController.js"></script>
+</body>
+</html>
