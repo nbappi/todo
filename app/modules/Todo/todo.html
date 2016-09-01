@@ -1,3 +1,29 @@
-<ul ng-repeat="todo in todos">
-    <li>{{ todo }}</li>
-</ul>
+<div>
+    <p><b>Country Information</b></p>
+     <form >
+         <input ng-model="todo.country" placeholder="Country name"> <br /> <br />
+         <input ng-model="todo.code" placeholder="Country code"> <br /> <br />
+         <input ng-model="todo.city" placeholder="City name"> <br /> <br />
+         <button ng-click="addItem(todo)">Save</button>
+     </form>
+</div>
+<br><br>
+
+
+<table>
+    <caption>Country Info.</caption>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Code</td>
+            <td>City</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="todo in todos">
+            <td>{{ todo.country}}</td>
+            <td>{{ todo.code}}</td>
+            <td>{{ todo.city}}</td>
+        </tr>
+    </tbody>
+</table>
