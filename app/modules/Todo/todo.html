@@ -1,28 +1,17 @@
-<div>
-    <p><b>Country Information</b></p>
-     <form >
-         <input ng-model="todo.country" placeholder="Country name"> <br /> <br />
-         <input ng-model="todo.code" placeholder="Country code"> <br /> <br />
-         <input ng-model="todo.city" placeholder="City name"> <br /> <br />
-         <button ng-click="addItem(todo)">Save</button>
-         <button ng-click="updateItem(todo, todo.country)">Edit</button>
-     </form>
-</div>
-<br><br>
-
+<button ng-click="newForm()">New Form</button>
 
 <table>
     <caption>Country Info.</caption>
     <thead>
         <tr>
-            <td>Name</td>
-            <td>Code</td>
-            <td>City</td>
-            <td>Action</td>
+            <th>Name</th>
+            <th>Code</th>
+            <th>City</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="row in todos track by $index">
+        <tr ng-repeat="row in todos">
             <td>{{ row.country}}</td>
             <td>{{ row.code}}</td>
             <td>{{ row.city}}</td>
@@ -34,10 +23,19 @@
         </tr>
     </tbody>
 </table>
-
-<hr>
-<div>
-    <p>Detail of Todo</p>
+<br /><hr >
+<div ng-show="addArea">
+    <p><b>Country Information</b></p>
+     <form >
+         <input ng-model="todo.country" placeholder="Country name"> <br /> <br />
+         <input ng-model="todo.code" placeholder="Country code"> <br /> <br />
+         <input ng-model="todo.city" placeholder="City name"> <br /> <br />
+         <button ng-show="save" ng-click="addItem(todo)">Save</button>
+         <button ng-show="edit" ng-click="updateItem(todo, todo.country)">Edit</button>
+     </form>
+</div>
+<div ng-show="details">
+    <p><h3>Detail of Todo</h3></p>
     <p><b>Country </b>  :{{ todoDetail.country }}</p>
     <p><b>Code </b> : {{ todoDetail.code }}</p>
     <p><b>City </b> :{{ todoDetail.city }}</p>
