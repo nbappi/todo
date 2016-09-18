@@ -26,7 +26,19 @@
             <td>{{ row.country}}</td>
             <td>{{ row.code}}</td>
             <td>{{ row.city}}</td>
-            <td><a href="" ng-click="deleteItem(row.country)">Delete</a> <a href="" ng-click="editItem(row.country)">Edit</a> </td>
+            <td>
+                <a href="" ng-click="deleteItem(row.country)">Delete</a> 
+                <a href="" ng-click="editItem(row.country)">Edit</a> 
+                <a href="" ng-click="detailItem(row.country)">Detail</a> 
+            </td>
         </tr>
     </tbody>
 </table>
+
+<hr>
+<div>
+    <p>Detail of Todo</p>
+    <p><b>Country </b>  :{{ todoDetail.country }}</p>
+    <p><b>Code </b> : {{ todoDetail.code }}</p>
+    <p><b>City </b> :{{ todoDetail.city }}</p>
+</div>
