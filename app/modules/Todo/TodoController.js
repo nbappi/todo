@@ -7,6 +7,10 @@ todoApp.controller('TodoController', ['$scope', '$http','todoFactory','FVService
         $scope.addArea = false;
         $scope.todos = todoFactory.get();
 
+        $scope.settings = {
+          searchFilterColumn:['country','code']
+        };
+
         $scope.newForm = function(){
            $scope.addArea = true;
            $scope.details = false;
@@ -29,7 +33,6 @@ todoApp.controller('TodoController', ['$scope', '$http','todoFactory','FVService
                 city : ['required']
               };
               $scope.vMessage = FVService.formValidation(todo,validationCriteria);
-              console.log($scope.vMessage);
 
             if($scope.vMessage.status){
                 todoFactory.add(todo);
