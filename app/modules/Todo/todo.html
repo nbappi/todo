@@ -1,7 +1,7 @@
 <button ng-click="newForm()">New Form</button>
-
-<table>
-    <caption>Country Info.</caption>
+<br />
+<table style="border: 1px solid gray;">
+    <caption>Todo list.</caption>
     <thead>
         <tr>
             <th>Name</th>
@@ -25,11 +25,14 @@
 </table>
 <br /><hr >
 <div ng-show="addArea">
-    <p><b>Country Information</b></p>
+    <p><b>Todo Input</b></p>
      <form >
-         <input ng-model="todo.country" placeholder="Country name"> <br /> <br />
-         <input ng-model="todo.code" placeholder="Country code"> <br /> <br />
-         <input ng-model="todo.city" placeholder="City name"> <br /> <br />
+         <input ng-model="todo.country" placeholder="Country name">
+         <span class="form-error">{{ vMessage.country }}</span><br /><br />
+         <input ng-model="todo.code" placeholder="Country code">
+         <span class="form-error">{{ vMessage.code }}</span><br /><br />
+         <input ng-model="todo.city" placeholder="City name">
+         <span class="form-error">{{ vMessage.city }}</span><br /><br />
          <button ng-show="save" ng-click="addItem(todo)">Save</button>
          <button ng-show="edit" ng-click="updateItem(todo, todo.country)">Edit</button>
      </form>

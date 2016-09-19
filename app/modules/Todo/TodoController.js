@@ -1,7 +1,7 @@
 'use strict';
 
-todoApp.controller('TodoController', ['$scope', '$http','todoFactory',
-    function($scope, $http, todoFactory)
+todoApp.controller('TodoController', ['$scope', '$http','todoFactory','FVService',
+    function($scope, $http, todoFactory,FVService)
     {
         $scope.details = false;
         $scope.addArea = false;
@@ -22,13 +22,24 @@ todoApp.controller('TodoController', ['$scope', '$http','todoFactory',
 
         $scope.addItem = function(todo)
         {
-            todoFactory.add(todo);
-            $scope.todo = {
-                country : '',
-                code : '',
-                city : ''
-            };
-            $scope.save = true;
+            $scope.vMessage = {};
+              var validationCriteria = {
+                country : ['required', 'country_name'],
+                code : ['required'],
+                city : ['required']
+              };
+              $scope.vMessage = FVService.formValidation(todo,validationCriteria);
+              console.log($scope.vMessage);
+
+            if($scope.vMessage.status){
+                todoFactory.add(todo);
+                $scope.todo = {
+                    country : '',
+                    code : '',
+                    city : ''
+                };
+                $scope.save = true;
+          }
         };
 
         $scope.editItem = function(todoId){
