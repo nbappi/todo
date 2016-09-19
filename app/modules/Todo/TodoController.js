@@ -3,6 +3,13 @@
 todoApp.controller('TodoController', ['$scope', '$http','todoFactory','FVService',
     function($scope, $http, todoFactory,FVService)
     {
+
+       // pagination 
+         $scope.curPage = 0;
+         $scope.pageSize = 2;
+   
+       // end pagination
+
         $scope.details = false;
         $scope.addArea = false;
         $scope.todos = todoFactory.get();
@@ -68,5 +75,9 @@ todoApp.controller('TodoController', ['$scope', '$http','todoFactory','FVService
            $scope.addArea = false;
            todoFactory.delete(data);
         };
+
+         $scope.numberOfPages = function() {
+             return Math.ceil($scope.todos.length / $scope.pageSize);
+          };
     }
 ]);

@@ -19,7 +19,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="row in todos | searchFilter:search:settings.searchFilterColumn">
+        <tr ng-repeat="row in todos | searchFilter:search:settings.searchFilterColumn | pagination: curPage * pageSize | limitTo: pageSize">
             <td>{{ row.country}}</td>
             <td>{{ row.code}}</td>
             <td>{{ row.city}}</td>
@@ -29,9 +29,15 @@
                 <a href="" ng-click="detailItem(row.country)">Detail</a> 
             </td>
         </tr>
-         <div data-pagination="" data-num-pages="numPages()" 
-      data-current-page="currentPage" data-max-size="maxSize"  
-      data-boundary-links="true"></div>
+        <tr>
+          <td colspan="4" ng-show="todos.length">  
+            <button ng-disabled="curPage == 0" ng-click="curPage=curPage-1"> &lt;</button>
+             <span>{{curPage + 1}} of {{ numberOfPages() }}</span>
+             <button
+             ng-disabled="curPage >= todos.length/pageSize - 1"
+             ng-click="curPage = curPage+1">&gt;</button>
+          </td>
+        </tr>
     </tbody>
 </table>
 <br /><hr >
